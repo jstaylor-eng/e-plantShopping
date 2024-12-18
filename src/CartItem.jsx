@@ -1,7 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { removeItem, updateQuantity } from './CartSlice';
-import { onContinueShopping } from './ProductList.jsx'
 import './CartItem.css';
 
 const CartItem = ({ onContinueShopping }) => {
@@ -12,8 +11,7 @@ const CartItem = ({ onContinueShopping }) => {
   const calculateTotalAmount = () => {        
     let total = 0;        
     cart.map((plant, index) => {          
-      // total += plant.quantity * parseFloat(plant.cost.substring(1));
-      total +=  (plant.quantity * Number(plant.cost));        
+      total += plant.quantity * parseFloat(plant.cost.substring(1));       
     });        
     return total;
   };
